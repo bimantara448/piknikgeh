@@ -1,8 +1,9 @@
 # piknikgeh
-.
-INSTALASI :
-SERVER/CONFIG/config.php //baseurl
-SERVER/CONFIG/database.php //database
-.
-APP/js/system.js
-setting base url
+<br>
+<br>INSTALASI :
+<br>SERVER/CONFIG/config.php //baseurl
+<br>SERVER/CONFIG/database.php //database
+<br>
+<br>
+<br>APP/js/system.js
+<br>setting base url
