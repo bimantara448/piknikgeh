@@ -1,0 +1,104 @@
+<div class="page light">
+	<div class="navbar navbar-style-1">
+		<div class="navbar-inner">
+			<div class="left">
+                <a href="#" class="link back">
+					<i class="icon flaticon-left"></i>
+                </a>
+            </div>
+			<div class="title">Checkout</div>
+            <div class="right">
+            </div>
+        </div>
+	</div>
+	<div class="page-content pt-60 bottom-sp90">
+		<div class="container">
+			<ul class="nav-wizard sticky-top">
+				<li>
+					<a class="nav-link active" href="#"> 
+						<span>Shipping Address</span> 
+					</a>
+				</li>
+				<li>
+					<a class="nav-link inactive" href="#">
+						<span>Payment Method</span>
+					</a>
+				</li>
+			</ul>
+			<form class="form-elements pt-20">
+				<div class="list">
+					<ul class="row">
+						<li class="item-content item-input col-100 item-input-with-value">
+							<div class="item-inner">
+								<label class="form-label">Full Name</label>
+								<div class="item-input-wrap">
+									<input type="text" placeholder="Your Name" value="Samuel Witwicky" class="form-control"/>
+								</div>
+							</div>
+						</li>
+						<li class="item-content item-input col-100">
+							<div class="item-inner">
+								<label class="form-label">Email Address</label>
+								<div class="item-input-wrap">
+									<input type="email" placeholder="Email Address" value="info@example.com" class="form-control"/>
+								</div>
+							</div>
+						</li>
+						<li class="item-content item-input col-100">
+							<div class="item-inner">
+								<label class="form-label">Phone</label>
+								<div class="item-input-wrap">
+									<input type="number" placeholder="Enter your phone number" class="form-control"/>
+								</div>
+							</div>
+						</li>
+						<li class="item-content item-input col-50">
+							<div class="item-inner">
+								<label class="form-label">Zip Code</label>
+								<div class="item-input-wrap">
+									<input type="text" placeholder="Enter here" class="form-control"/>
+								</div>
+							</div>
+						</li>
+						<li class="item-content item-input col-50">
+							<div class="item-inner">
+								<label class="form-label">City</label>
+								<div class="item-input-wrap">
+									<input type="text" placeholder="Enter here" class="form-control"/>
+								</div>
+							</div>
+						</li>
+						<li class="item-content item-input col-100">
+							<div class="item-inner">
+								<label class="form-label">Country</label>
+								<div class="item-input-wrap input-dropdown-wrap mb-0">
+									<select name="gender" class="form-control default-select input-with-value">
+										<option>USA</option>
+										<option>China</option>
+										<option>India</option>
+									</select>
+								</div>
+							</div>
+						</li>
+						<li class="item-content item-input col-100">
+							<div class="item-inner">
+								<div class="mt-10 checkbox-form-control">
+									<label class="checkbox">
+										<input type="checkbox" @change="showField">
+										<i class="icon-checkbox"></i> 
+									</label>
+									<p class="checkbox-text" @click="showField">Save shipping address</p>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</form>
+		</div>
+	</div>
+	<div class="toolbar toolbar-bottom footer-button padding border-top">
+		<div class="container px-15">
+			<a href="/payment-method/" class="button-large button button-fill">Next</a>
+		</div>
+	</div>
+</div>

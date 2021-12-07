@@ -1,0 +1,41 @@
+/* Framework */
+.block-title-medium{
+    font-size: 18px;
+    font-weight: 600;
+}
+.md .searchbar-disable-button:after,
+.searchbar-icon:after{
+    font-size:22px;    
+}
+.block-title-medium {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+.navbar .title-large-text{
+    padding-left: 30px;
+    padding-right: 30px;
+    font-size: 24px;
+}
+.color-theme-page{
+    .block{
+        padding-left:30px;    
+        padding-right:30px;    
+    }
+    .block-title-medium{
+        margin-left:30px;    
+        margin-right:30px;    
+    }
+    .list .item-content{
+        padding-left:30px;    
+    }
+}
+.searchbar-not-found {
+    min-height: 100vh;
+}
+:root{
+    --f7-list-item-padding-horizontal: 30px;
+    --f7-list-media-item-padding-horizontal: 30px;
+    --f7-block-padding-horizontal: 30px;
+    --f7-block-padding-vertical: 30px;
+}

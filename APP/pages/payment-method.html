@@ -1,0 +1,193 @@
+<template>
+    <div class="page light">
+        <div class="navbar navbar-style-1">
+            <div class="navbar-inner">
+                <div class="left">
+                    <a href="#" class="link back">
+                        <i class="icon flaticon-left"></i>
+                    </a>
+                </div>
+                <div class="title">Checkout</div>
+                <div class="right">
+                </div>
+            </div>
+        </div>
+        <div class="page-content pt-60 bottom-sp90">
+            <div class="container">
+                <div class="sticky-top bg-white">
+                    <ul class="nav-wizard">
+                        <li>
+                            <a class="nav-link done" href="/shipping-address/"> 
+                                <span>Shipping Address</span> 
+                            </a>
+                        </li>
+                        <li>
+                            <a class="nav-link active" href="#">
+                                <span>Payment Method</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="pt-20">
+                    <div class="tabs-swipeable-wrap tabs-height-auto">
+                        <div class="toolbar toolbar-bottom tabbar tab-style-1 tabbar-scrollable mb-20">
+                            <div class="toolbar-inner">
+                                <a href="#tab-1" class="tab-link">COD</a>
+                                <a href="#tab-2" class="tab-link tab-link-active">Credit Card</a>
+                            </div>
+                        </div>
+                        <div class="tabs">
+                            <div id="tab-1" class="tab">
+                                <!-- Form -->
+                                <form class="form-elements">
+                                    <div class="list">
+                                        <ul class="row">
+                                            <li class="item-content item-input col-100 item-input-with-value">
+                                                <div class="item-inner">
+                                                    <label class="form-label">Address</label>
+                                                    <div class="item-input-wrap">
+                                                        <input type="text" placeholder="Address" class="form-control"/>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </form>
+                            </div>
+                            <div id="tab-2" class="tab tab-active">
+                                <!-- Payment Swiper -->
+                                <div data-space-between="20" data-slides-per-view="auto" data-centered-slides="false" class="swiper-container swiper-init payment-swiper mb-20">
+                                    <div class="swiper-wrapper">
+                                        <div class="swiper-slide">
+                                            <div class="payment-card">
+                                                <div class="card-media">
+                                                    <img src="img/card/card1.png" alt="">
+                                                </div>
+                                                <div class="card-info">
+                                                    <div class="clearfix">
+                                                        <h5 class="card-name">Credit Card</h5>
+                                                        <h5 class="card-amount">$45,662</h5>
+                                                    </div>
+                                                    <div class="clearfix">
+                                                        <p class="card-number">**** **** **** 1234</p>
+                                                    </div>
+                                                </div>
+                                                <div class="card-check">
+                                                    <i class="fa fa-check"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <div class="payment-card">
+                                                <div class="card-media">
+                                                    <img src="img/card/card2.png" alt="">
+                                                </div>
+                                                <div class="card-info">
+                                                    <div class="clearfix">
+                                                        <h5 class="card-name">Credit Card</h5>
+                                                        <h5 class="card-amount">$45,662</h5>
+                                                    </div>
+                                                    <div class="clearfix">
+                                                        <p class="card-number">**** **** **** 1234</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Form -->
+                                <form class="form-elements">
+                                    <div class="list">
+                                        <ul class="row">
+                                            <li class="item-content item-input col-100 item-input-with-value">
+                                                <div class="item-inner">
+                                                    <label class="form-label">Card Holder Name</label>
+                                                    <div class="item-input-wrap">
+                                                        <input type="text" placeholder="Your Name" value="Samuel Witwicky" class="form-control"/>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="item-content item-input col-100">
+                                                <div class="item-inner">
+                                                    <label class="form-label">Card Number</label>
+                                                    <div class="item-input-wrap">
+                                                        <input type="number" placeholder="1234 5678 9101 1121" value="123 456 789 0123" class="form-control"/>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="item-content item-input col-50">
+                                                <div class="item-inner">
+                                                    <label class="form-label">Month/Year</label>
+                                                    <div class="item-input-wrap">
+                                                        <input type="text" placeholder="Enter here" class="form-control"/>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="item-content item-input col-50">
+                                                <div class="item-inner">
+                                                    <label class="form-label">CVV</label>
+                                                    <div class="item-input-wrap">
+                                                        <input type="text" placeholder="Enter here" class="form-control"/>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="item-content item-input col-100">
+                                                <div class="item-inner">
+                                                    <label class="form-label">Country</label>
+                                                    <div class="item-input-wrap input-dropdown-wrap mb-0">
+                                                        <select class="form-control default-select input-with-value">
+                                                            <option>Choose your country</option>
+                                                            <option>USA</option>
+                                                            <option>China</option>
+                                                            <option>India</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="item-content item-input col-100">
+                                                <div class="item-inner">
+                                                    <div class="mt-10 checkbox-form-control">
+                                                        <label class="checkbox">
+                                                            <input type="checkbox" >
+                                                            <i class="icon-checkbox"></i> 
+                                                        </label>
+                                                        <p class="checkbox-text" >Save shipping address</p>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </form>
+                            
+                            </div>
+                        </div>
+                    </div>
+                </div>	
+                
+            </div>
+        </div>
+        <div class="toolbar toolbar-bottom footer-button border-top padding">
+            <div class="container px-15">
+                <a href="/write-reviews/" class="button-large button button-fill">Next</a>
+            </div>
+        </div>
+    </div>
+</template>
+<script>
+  return {
+    data() {
+      return {
+        tabs: [1,2],
+        toolbarPosition: 'top',
+      };
+    },
+    methods: {
+      toggleToolbarPosition: function () {
+        this.$setState({
+          toolbarPosition: this.toolbarPosition === 'top' ? 'bottom' : 'top',
+        });
+      },
+    }
+  }
+</script>

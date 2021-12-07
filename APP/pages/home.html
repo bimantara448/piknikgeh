@@ -1,0 +1,170 @@
+<template>
+<div class="page page-homepage light" data-name="homepage">
+	<div class="page-content content-area pt-30 bottom-sp80">
+		<div class="container">
+			<div class="notification-bar">
+				<div class="info">
+					<span class="text" id="salam">Good Morning</span>
+					<h5 class="title" id="nama"></h5>
+				</div>
+				<div class="media">
+					<a href="/notifications-app/" class="notibell">
+                        <i class="fa fa-bell"></i>
+                        <div class="badge"></div>
+                    </a>
+				</div>
+			</div>
+			<div data-space-between="10" data-slides-per-view="auto" data-centered-slides="false" class="swiper-container swiper-init mb-30 post-area">
+				<div class="swiper-wrapper" id="banner">
+					<a href="#" class="swiper-slide">
+						<div class="post-card">
+							<div class="post-media">
+								<img src="img/foto/GigiHiu.jpg" alt="">
+							</div>
+							<div class="post-info">
+								<h3 class="title">Banner 1</h3>
+							</div>
+						</div>
+					</a>
+					<a href="#" class="swiper-slide">
+						<div class="post-card">
+							<div class="post-media">
+								<img src="img/foto/GigiHiu.jpg" alt="">
+							</div>
+							<div class="post-info">
+								<h3 class="title">Banner 2</h3>
+							</div>
+						</div>
+					</a>
+					<a href="#" class="swiper-slide">
+						<div class="post-card">
+							<div class="post-media">
+								<img src="img/foto/GigiHiu.jpg" alt="">
+							</div>
+							<div class="post-info">
+								<h3 class="title">Banner 3</h3>
+							</div>
+						</div>
+					</a>
+					<a href="#" class="swiper-slide">
+						<div class="post-card">
+							<div class="post-media">
+								<img src="img/foto/GigiHiu.jpg" alt="">
+							</div>
+							<div class="post-info">
+								<h3 class="title">Banner 4</h3>
+							</div>
+						</div>
+					</a>
+					<a href="#" class="swiper-slide">
+						<div class="post-card">
+							<div class="post-media">
+								<img src="img/foto/GigiHiu.jpg" alt="">
+							</div>
+							<div class="post-info">
+								<h3 class="title">Banner 5</h3>
+							</div>
+						</div>
+					</a>
+				</div>
+			</div>
+			
+			<div class="title-bar mb-15">
+				<h3 class="dz-title my-5">Categories</h3>
+				<a href="/categories/"><i class="flaticon-right"></i></a>
+			</div>
+			<div data-space-between="10" data-slides-per-view="auto" data-centered-slides="false" class="swiper-container swiper-init demo-swiper-multiple tag-area tag-swiper">
+				<div class="swiper-wrapper" id="categoriess">
+					<div class="swiper-slide">
+						<a href="#" class="tag button button-outline">
+							<img src="img/icon/beach.png" alt="" width="50px">
+						</a>
+					</div>
+					<div class="swiper-slide">
+						<a href="#" class="tag button button-outline">
+							<img src="img/icon/beach.png" alt="" width="50px">
+						</a>
+					</div>
+					<div class="swiper-slide">
+						<a href="#" class="tag button button-outline">
+							<img src="img/icon/beach.png" alt="" width="50px">
+						</a>
+					</div>
+					<div class="swiper-slide">
+						<a href="#" class="tag button button-outline">
+							<img src="img/icon/beach.png" alt="" width="50px">
+						</a>
+					</div>
+					<div class="swiper-slide">
+						<a href="#" class="tag button button-outline">
+							<img src="img/icon/beach.png" alt="" width="50px">
+						</a>
+					</div>
+					<div class="swiper-slide">
+						<a href="#" class="tag button button-outline">
+							<img src="img/icon/beach.png" alt="" width="50px">
+						</a>
+					</div>
+					
+				</div>
+			</div>
+			
+			<div class="title-bar mb-15">
+				<h3 class="dz-title my-5">Trending</h3>
+				<!-- <a href="/deals/"><i class="flaticon-right"></i></a> -->
+			</div>
+			<div class="row" id="trending">
+
+				=
+				<!-- <div class="col-100">
+					<button class="button button-fill button-large">Load More</button>
+				</div> -->
+			</div>
+		</div>
+	</div>
+	
+    <div class="toolbar tabbar tabbar-labels toolbar-bottom menubar-area">
+        <div class="toolbar-inner">
+            <a href="/home/" class="tab-link active">
+				<i class="flaticon-home"></i>
+            </a>
+            <a href="/categories/" class="tab-link">
+				<i class="flaticon-transfer-2"></i>
+            </a>
+            <a href="/shopping-cart/" class="tab-link cart-in">
+                <i class="flaticon-shopping-cart"></i>
+            </a>
+            <a href="/profile/" class="tab-link">
+                <img src="img/avatar/pp_ale.jpg" class="user-media" alt="">
+            </a>
+        </div>
+    </div>
+</div>
+</template>
+
+<script>
+return {
+  
+  methods: {
+
+  },
+  on: {
+	pageInit: function () {
+      var self = this;
+	 
+	  $('.item-bookmark').on('click', function (e) {
+			$(this).toggleClass('active');
+	  });
+	},
+    pageBeforeOut: function () {
+      var self = this;
+      
+    },
+    pageBeforeRemove: function () {
+      var self = this;
+	  
+     
+    },
+  },
+}
+</script>

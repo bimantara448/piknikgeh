@@ -1,0 +1,157 @@
+/* Cart Item */
+.cart-list-area{
+	padding-left: 0;
+	padding-right: 0;
+    .list ul{
+        background:var(--f7-theme-color-light);
+    }
+}
+.cart-list{
+	overflow: hidden;
+	margin: 0;
+	ul{
+		&:before,
+		&:after{
+			content: none;
+		}
+	}
+}
+.cart-item{
+	background-color: #0a3c48;
+	overflow: unset;
+	margin: 6px 0;
+	
+	&.swipeout.swipeout-opened {
+		z-index: 1;
+	}
+	
+	// item content
+	.item-content{
+		padding-left: 0;
+		transition: all 0.5s;
+	}
+	
+	// item inner
+	.item-inner{
+		background-color:var(--f7-theme-color-light);
+		padding: 12px 30px;
+		
+		&:after{
+			content: none;
+		}
+	}
+	
+	// item title
+	.item-title{
+		font-weight: 500;
+		margin: 0 0 10px;
+		a{
+			color: #000;
+		}
+	}
+	
+	// item-media
+	.item-media{
+		min-width: 95px !important;
+		width: 95px;
+		position: relative;
+		padding: 0;
+		border-radius: 16px;
+		overflow: hidden;
+		margin-right: 20px;
+		height: 115px;
+			
+		img{
+			width: 100%;
+		}
+		.item-price{
+			background-color: var(--f7-theme-color);
+			color: #fff;
+			position: absolute;
+			bottom: 0;
+			margin: 0;
+			width: 100%;
+			left: 0;
+			text-align: center;
+			font-weight: 500;
+			font-size: 18px;
+			padding: 5px;
+			border-radius: 16px;
+			box-sizing: border-box;
+		}
+	}
+	
+	.item-info{
+		width: 100%;
+		justify-content: space-between;
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+		padding: 5px 0;
+		box-sizing: border-box;
+	}
+	
+	// item head
+	.item-head{
+		.category{
+			margin: 0;
+			font-size: 12px;
+			color: rgba(0,0,0,0.6);
+		}
+	}
+	
+	// item foot
+	.item-foot{
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	
+		.item-total{
+			margin: 0;
+			font-weight: 500;
+			font-size: 18px;
+		}
+	}
+	
+	// swipeout
+	.swipeout-delete{
+		background-color: #0A3C48;
+		font-size: 28px;
+	}
+	
+	// swipeout-opened
+	&.swipeout-opened{
+		.item-content{
+			border-radius: 15px;
+			overflow: hidden;
+			box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+		}
+	}
+}
+
+// Stepper
+.stepper{
+	background-color: #EFEFEF;
+	height: 35px;
+	width: 115px;
+	
+	.stepper-button-plus,
+	.stepper-button-minus{
+		width: 35px;
+		border: 0;
+		
+		&:before,
+		&:after{
+			background-color: #0A3C48;
+		}
+	}
+	
+	.stepper-input-wrap{
+		border: 0;
+		input {
+			color: #0A3C48;
+			font-size: 18px;
+			font-weight: 500;
+		}
+	}
+}
