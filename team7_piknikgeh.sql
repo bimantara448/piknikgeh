@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 07, 2021 at 01:25 PM
+-- Generation Time: Dec 09, 2021 at 09:49 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.0.13
 
@@ -75,7 +75,7 @@ INSERT INTO `kategori_wisata` (`id_kat`, `nama_kat`, `logo_kat`) VALUES
 
 CREATE TABLE `metode_pembayaran` (
   `id_metode_pembayaran` int(11) NOT NULL,
-  `nama_metode_pembayara` varchar(100) NOT NULL,
+  `nama_metode_pembayaran` varchar(100) NOT NULL,
   `catatan_metode_pembayaran` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -83,8 +83,9 @@ CREATE TABLE `metode_pembayaran` (
 -- Dumping data for table `metode_pembayaran`
 --
 
-INSERT INTO `metode_pembayaran` (`id_metode_pembayaran`, `nama_metode_pembayara`, `catatan_metode_pembayaran`) VALUES
-(1, 'COD', 'Pembayaran dilakukan di tempat wisata. Ketika anda ingin masuk');
+INSERT INTO `metode_pembayaran` (`id_metode_pembayaran`, `nama_metode_pembayaran`, `catatan_metode_pembayaran`) VALUES
+(1, 'COD', 'Pembayaran dilakukan di tempat wisata. Ketika anda ingin masuk'),
+(2, 'Pembayaran Online', 'Pembayaran Online menggunakan transfer bank dan dompet digital.');
 
 -- --------------------------------------------------------
 
@@ -96,11 +97,25 @@ CREATE TABLE `pemesanan` (
   `id_pemesanan` int(11) NOT NULL,
   `id_user` int(11) NOT NULL,
   `id_wisata` int(11) NOT NULL,
+  `code_tiket` varchar(50) NOT NULL,
+  `nama_pembeli` varchar(50) NOT NULL,
+  `email_pembeli` varchar(50) NOT NULL,
+  `nohp_pembeli` varchar(50) NOT NULL,
   `jumlah_tiket` int(11) NOT NULL,
   `harga_tiket` int(11) NOT NULL,
   `id_metode_pembayaran` int(11) NOT NULL,
+  `gateway_pembayaran` varchar(100) NOT NULL,
   `status_pembayaran` enum('Pending','Sukses','Gagal') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `pemesanan`
+--
+
+INSERT INTO `pemesanan` (`id_pemesanan`, `id_user`, `id_wisata`, `code_tiket`, `nama_pembeli`, `email_pembeli`, `nohp_pembeli`, `jumlah_tiket`, `harga_tiket`, `id_metode_pembayaran`, `gateway_pembayaran`, `status_pembayaran`) VALUES
+(1, 1, 10, 'sdsdsdfssf', '', '', '', 5, 250000, 1, '-', 'Gagal'),
+(2, 1, 11, 'I7GZ2YQ1', 'Khanza', '', '', 1, 20000, 1, '-', 'Sukses'),
+(3, 1, 9, 'UXVK4S0R', '', '', '', 1, 250000, 2, 'https://app.sandbox.midtrans.com/payment-links/1638815007248', 'Pending');
 
 -- --------------------------------------------------------
 
@@ -220,7 +235,7 @@ ALTER TABLE `kategori_wisata`
 -- AUTO_INCREMENT for table `pemesanan`
 --
 ALTER TABLE `pemesanan`
-  MODIFY `id_pemesanan` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_pemesanan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `tempat_wisata`

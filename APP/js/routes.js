@@ -112,7 +112,7 @@ var routes = [
     url: './pages/shopping-cart.html',
   },
   {
-    path: '/shipping-address/:uu/',
+    path: '/shipping-address/:uu/:ee/',
     url: './pages/shipping-address.html',
   },
   {
@@ -122,6 +122,10 @@ var routes = [
   {
     path: '/write-reviews/',
     url: './pages/write-reviews.html',
+  },
+  {
+    path: '/tiketnya/:it/',
+    url: './pages/tiketnya.html',
   },
   {
     path: '/item-details/:id/',

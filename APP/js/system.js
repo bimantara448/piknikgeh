@@ -1,9 +1,10 @@
 ignoreCache:true;
+
 // JS DARI SINI
 console.log("updates 232");
 
 // base url
-var base_url = "http://localhost/SERVER/API/";
+var base_url = "http://192.168.100.112/piknikgeh/SERVER/API/";
 
 // CEK LOGIN
 cek();
@@ -154,8 +155,8 @@ $(document).on('page:init', '.page[data-name="profile"]', function (e) {
 });
 
 // PAGE ITEM DETAILS
-$(document).on('page:init', '.page[data-name="detail_wisata"]', function (e) {
-    var id_wisata = $$("#id_wisata").val();
+$(document).on('page:init', '.page[data-name="detail_wisata"]', function (e, page) {
+    var id_wisata = page.route.params.id;
     app.request({
         url: base_url + "detail_wisata.php",
         type: "POST",
@@ -209,7 +210,7 @@ $(document).on('page:init', '.page[data-name="kategori"]', function (e) {
     });
 });
 
-// PAGE KATEGORI
+// PAGE PERKATEGORI
 $(document).on('page:init', '.page[data-name="perkategori"]', function (e) {
     var id_kat = $$("#id_kat").val();
     app.request({
@@ -233,17 +234,176 @@ $(document).on('page:init', '.page[data-name="perkategori"]', function (e) {
     });
 });
 
+// PAGE CHECKOUT
+$(document).on('page:init', '.page[data-name="checkout"]', function (e, page) {
+    var wisata_id = page.route.params.uu;
+    var jumlah_tiket = page.route.params.ee;
+    var username = localStorage.getItem("username");
+    app.request({
+        url: base_url + "checkout.php",
+        type: "POST",
+        data: {
+            "wisata_id": wisata_id,
+            "jumlah_tiket": jumlah_tiket,
+            "username": username
+        },
+        dataType: 'json',
+        success: function (data) {
+            console.log(data);
+            if (data.error) {
+                // app.dialog.alert(data.pesan,"Error.",function () {
+                //     app.views.main.router.navigate('/home/');
+                //   });
+            } else {
+                $("#wisata_nama").html(data.nama_wisata);
+                var wisata_harganya = formatNumber(data.harga_wisata);
+                $("#wisata_harga").html("Rp " + wisata_harganya);
+                $("#wisata_jmlh").html(data.tiketnya_brapa);
+                var total_harganya = formatNumber(data.total_harga);
+                $("#wisata_total").html("<b>Rp " + total_harganya + "</b>");
+
+                $("#pengguna_nama").val(data.nama_pemesan);
+                $("#pengguna_email").val(data.email_pemesan);
+                $("#pembayaran").html(data.pembayaran_via);
+            }
+        }
+    });
+
+    $("#pembayaran").change(function() {
+        var pembayaran_id = $("#pembayaran").val();
+        app.request({
+            url: base_url + "pembayaran_note.php",
+            type: "POST",
+            data: {
+                "pembayaran_id": pembayaran_id
+            },
+            dataType: 'json',
+            success: function (data) {
+                console.log(data);
+                if (data.error) {
+                    app.dialog.alert(data.pesan,"Gagal!");
+                } else {
+                    $("#info_pembayaran").html(data.catatan_metode_pembayaran);
+                }
+            }
+        });
+    });
+
+    $$("#pesan").click(function () {
+        var nama_pemesan = $$("#pengguna_nama").val();
+        var pengguna_email = $$("#pengguna_email").val();
+        var pengguna_notelp = $$("#pengguna_notelp").val();
+        var pembayaran = $$("#pembayaran").val();
+
+        if(pembayaran == 0){
+            app.dialog.alert("Pilih salah satu metode pembayaran","Gagal");
+        } else if (nama_pemesan === "" || pengguna_email === "" || pengguna_notelp === ""){
+            app.dialog.alert("Pastikan semua terisi","Gagal");
+        } else {
+            console.log("POST DETEKSI 2");
+            app.request({
+                url: base_url + "checkout2.php",
+                type: "POST",
+                data: {
+                    "wisata_id": wisata_id,
+                    "jumlah_tiket": jumlah_tiket,
+                    "username": username,
+                    "nama_pemesan": nama_pemesan,
+                    "pengguna_email": pengguna_email,
+                    "pengguna_notelp": pengguna_notelp,
+                    "pembayaran": pembayaran
+                },
+                dataType: 'json',
+                success: function (data) {
+                    console.log(data);
+                    if (data.error) {
+                        app.dialog.alert(data.pesan,"Gagal!");
+                    } else {
+                        app.dialog.alert(data.pesan,"Berhasil");
+                        if(pembayaran != 1){
+                            var link_pembayaran = data.link_pembayaran;
+                            location.replace(link_pembayaran);
+                        } else {
+                            app.views.main.router.navigate('/shopping-cart/');
+                        }
+                    }
+                }
+            });
+        }
+      });
+
+
+});
+
+// PAGE riwayat pemesanan
+$(document).on('page:init', '.page[data-name="list_tiket"]', function (e) {
+    var username = localStorage.getItem("username");
+    app.request({
+        url: base_url + "list_tiket.php",
+        type: "POST",
+        data: {
+            "username": username
+        },
+        dataType: 'json',
+        success: function (data) {
+            console.log(data);
+            if (data.error) {
+                // app.dialog.alert(data.pesan,"Error.",function () {
+                //     app.views.main.router.navigate('/home/');
+                //   });
+            } else {
+                $("#list_wisatanya").html(data.list_pemesanan);
+            }
+        }
+    });
+});
+
+
+// PAGE riwayat pemesanan
+$(document).on('page:init', '.page[data-name="tiket"]', function (e, page) {
+    var tiket_id = page.route.params.it;
+    app.request({
+        url: base_url + "detail_tiket.php",
+        type: "POST",
+        data: {
+            "tiket_id": tiket_id
+        },
+        dataType: 'json',
+        success: function (data) {
+            console.log(data);
+            if (data.error) {
+                // app.dialog.alert(data.pesan,"Error.",function () {
+                //     app.views.main.router.navigate('/home/');
+                //   });
+            } else {
+                $("#img_tiket").html(data.img_tiket);
+                $("#nama_wisata").html(data.nama_wisata);
+                $("#detail_tiket").html(data.detail_tiket);
+                $("#code_tiket").html(data.code_tiket);
+                $("#nama_pemembeli").html(data.nama_pemembeli);
+                $("#jumlah_tiket").html(data.jumlah_tiket);
+                $("#harga_total").html(data.harga_total);
+                $("#pembayaran_tiket").html(data.pembayaran_tiket);
+                $("#qr_tiket").html(data.qr_tiket);
+            }
+        }
+    });
+});
 
 function formatNumber(num) {
     return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.")
 }
 
 function get_total(quantity) {
+    var id_wisataa = $$("#id_wisata").val();
     var rate = $("#rate").val();
     var result = eval(quantity) * rate;
     var bilangan = result.toFixed(0);
     var ribu = formatNumber(bilangan);
-    $('#total_price').html("Rp "+ribu);
+    $('#buttonr').html("<a href='/shipping-address/" + id_wisataa + "/" + quantity + "/' class='button-large button add-cart-btn button-fill'>Pesan Tiket \
+    <span class='price' id='total_price'>Rp " + ribu + "</span>\
+</a>");
+
 }
 
 

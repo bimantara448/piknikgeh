@@ -3,7 +3,7 @@
 //error_reporting(0);
 
 // BASE url
-	$base_url = "http://localhost/SERVER/";
+	$base_url = "http://192.168.100.112/piknikgeh/SERVER/";
 
 // Konek db
 	require_once("database.php");
